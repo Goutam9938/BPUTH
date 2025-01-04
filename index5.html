@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Booking</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Train Schedule & Booking</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Train No</th>
+                    <th>Departure Time</th>
+                    <th>Arrival Time</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Available Seats</th>
+                    <th>Seat Types & Prices</th>
+                    <th>Book</th>
+                </tr>
+            </thead>
+            <tbody id="train-table-body">
+                <!-- Train information will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Payment Form Page -->
+    <div id="payment-page" class="container" style="display: none;">
+        <h2>Enter Payment Details</h2>
+        <form id="payment-form">
+            <label for="seat-type">Select Seat Type:</label>
+            <select id="seat-type" name="seat-type" required>
+                <option value="General">General</option>
+                <option value="3-Tier">3-Tier</option>
+                <option value="2-Tier">2-Tier</option>
+                <option value="2-Tier">1-Tier</option>
+            </select>
+
+            <label for="card-number">Card Number:</label>
+            <input type="text" id="card-number" name="card-number" required>
+
+            <label for="expiry-date">Expiry Date:</label>
+            <input type="text" id="expiry-date" name="expiry-date" required>
+
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" name="cvv" required>
+
+            <button type="submit">Proceed to Book</button>
+        </form>
+        <div id="payment-error-message" class="confirmation-message"></div>
+    </div>
+
+    <!-- Booking Confirmation Page -->
+    <div id="confirmation-page" class="container" style="display: none;">
+        <h2>Booking Confirmed!</h2>
+        <p id="confirmation-message"></p>
+    </div>
+
+    <script src="script2.js"></script>
+</body>
+</html>

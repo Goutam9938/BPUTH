@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Carbon Emission Reduction</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: url(hii.webp) no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 400%;
+            max-width: 550px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .sidebar {
+            flex: 0.6;
+            padding: 10px;
+            background-color: rgba(238, 244, 236, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sidebar h1 {
+            font-size: 24px;
+            color: #2d5f39;
+            margin-bottom: 8px;
+        }
+  
+        .sidebar p {
+            font-size: 14px;
+            color: #555;
+            text-align: center;
+            margin: 5px 0;
+        }
+
+        .sidebar img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .ranking {
+            flex: 1.4;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-left: 1px solid #ddd;
+        }
+
+        .ranking h2 {
+            font-size: 26px;
+            margin-bottom: 15px;
+            color: #333;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 16px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #3b7c4b;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+            cursor: pointer;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #2d5f39;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 8px;
+            font-size: 12px;
+            color: #777;
+            background: rgba(255, 255, 255, 0.9);
+            border-top: 1px solid #ddd;
+            width: 100%;
+        }
+
+        .nav-bar {
+            width: 100%;
+            background-color: #3b7c4b;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .nav-bar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 12px;
+            font-size: 16px;
+        }
+
+        .nav-bar a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                width: 95%;
+            }
+
+            .sidebar, .ranking {
+                flex: none;
+                width: 100%;
+            }
+
+            .sidebar img {
+                width: 80px;
+                height: 80px;
+            }
+
+            .ranking h2 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+  
+
+    <div class="container">
+        <div class="sidebar">
+            <img src="wel.webp" alt="User Profile">
+            <h1>Welcome!</h1>
+            <p>Be part of the eco-friendly movement and help reduce carbon emissions.</p>
+        </div>
+
+        <div class="ranking">
+            <h2>Rankings</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Name</th>
+                        <th>Carbon Reduced</th>
+                        <th>Vehicles Used</th>
+                        <th>Distance Covered</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td class="highlight">Alice</td>
+                        <td>120 kg</td>
+                        <td>5</td>
+                        <td>500 km</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Bob</td>
+                        <td>100 kg</td>
+                        <td>4</td>
+                        <td>400 km</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Charlie</td>
+                        <td>85 kg</td>
+                        <td>3</td>
+                        <td>350 km</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Daisy</td>
+                        <td>70 kg</td>
+                        <td>3</td>
+                        <td>300 km</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Emma</td>
+                        <td>50 kg</td>
+                        <td>2</td>
+                        <td>200 km</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+   
+</body>
+</html>

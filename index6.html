@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carpooling Carbon Emission Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 20px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .result {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Carpool Emission Calculator</h1>
+
+        <label for="distance">Daily Commute Distance (km):</label>
+        <input type="number" id="distance" placeholder="Enter distance" />
+
+        <label for="fuelEfficiency">Vehicle Fuel Efficiency (km/l):</label>
+        <input type="number" id="fuelEfficiency" placeholder="Enter efficiency" />
+
+        <label for="passengers">Number of Passengers (including driver):</label>
+        <input type="number" id="passengers" placeholder="Enter passengers" />
+
+        <button onclick="calculateCarbonReduction()">Calculate</button>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function calculateCarbonReduction() {
+            // Input values
+            const distance = parseFloat(document.getElementById("distance").value);
+            const fuelEfficiency = parseFloat(document.getElementById("fuelEfficiency").value);
+            const passengers = parseInt(document.getElementById("passengers").value);
+
+            if (isNaN(distance) || isNaN(fuelEfficiency) || isNaN(passengers) || passengers < 1) {
+                document.getElementById("result").textContent = "Please enter valid inputs.";
+                return;
+            }
+
+            // Carbon emission calculation (assume 2.31 kg CO2 per liter of fuel)
+            const fuelUsed = distance / fuelEfficiency;
+            const totalEmissions = fuelUsed * 2.31; // in kg
+
+            // Shared emissions per person
+            const sharedEmissions = totalEmissions / passengers;
+
+            // Result
+            document.getElementById("result").textContent = `Total Emissions: ${totalEmissions.toFixed(2)} kg CO2\n` +
+                `Shared Per Person: ${sharedEmissions.toFixed(2)} kg CO2`;
+        }
+    </script>
+</body>
+</html>

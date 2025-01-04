@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Everyday Green Habits Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #4caf50;
+        }
+        .activity {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+        .activity button {
+            padding: 5px 10px;
+            background: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .activity button:hover {
+            background: #45a049;
+        }
+        .summary {
+            margin-top: 20px;
+            padding: 10px;
+            background: #e8f5e9;
+            border-radius: 6px;
+        }
+        .summary p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Everyday Green Habits Tracker</h1>
+
+        <div class="activity">
+            <span>Walked or cycled today?</span>
+            <button onclick="addPoints(10)">+10 Points</button>
+        </div>
+        <div class="activity">
+            <span>Used energy-efficient appliances?</span>
+            <button onclick="addPoints(15)">+15 Points</button>
+        </div>
+        <div class="activity">
+            <span>Carpooled or used public transport?</span>
+            <button onclick="addPoints(20)">+20 Points</button>
+        </div>
+
+        <div class="summary">
+            <p><strong>Total Eco-Points:</strong> <span id="totalPoints">0</span></p>
+            <p><strong>Redeemable Rewards:</strong> <span id="rewards">None yet</span></p>
+        </div>
+    </div>
+
+    <script>
+        let totalPoints = 0;
+
+        function addPoints(points) {
+            totalPoints += points;
+            document.getElementById('totalPoints').innerText = totalPoints;
+
+            // Update rewards based on points
+            let rewards = "None yet";
+            if (totalPoints >= 50) {
+                rewards = "10% Trip Discount";
+            }
+            if (totalPoints >= 100) {
+                rewards = "20% Trip Discount or Eco-Gift";
+            }
+            document.getElementById('rewards').innerText = rewards;
+        }
+    </script>
+</body>
+</html>
