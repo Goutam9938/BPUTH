@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    font-family: "Poppins", serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.navbar nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.navbar nav ul li a:hover {
+    color: #ffeb3b;
+    border-bottom: 1px solid #ffeb3b;
+    transition: all 0.1s ease-in-out;
+}
+
+.navbar nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+main {
+    padding: 20px;
+    margin-top: 20px;
+}
+
+#map {
+    height: 400px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background-color: #e0e0e0;
+}
+
+.summary {
+    margin-bottom: 40px;
+}
+
+#emissions-summary {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #333;
+    font-size: 28px;
+    text-align: center;
+}
+
+#place{
+    /* background-color: red; */
+    padding: 20px;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2vw;
+}
+#place-input{
+    padding: 10px ;
+    width: 40%;
+    border-radius: 3px;
+    background: transparent;
+    border: none;
+    border: 1px solid gray;
+}
+
+#add-place-btn{
+    padding: 10px ;
+    border: none;
+    font-size: 15px;
+    border-radius: 3px;
+    background-color: rgb(21, 201, 21);
+    cursor: pointer;
+}
+.charts {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.alerts {
+    margin-top: 30px;
+    text-align: center;
+}
+
+#alerts-list {
+    list-style: none;
+    padding: 0;
+}
+
+#alerts-list li {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+footer {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    bottom: 0;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustainability Reporting & Compliance</title>
+    <link rel="stylesheet" href="report-style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <h1>Sustainability Reporting & Compliance</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="emissions-dashboard.html">Emissions Dashboard</a></li>
+                    <li><a href="sustainability-report.html">Sustainability Report</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="report-section">
+            <div class="summary">
+                <h2>Enter Emissions Data for Reporting</h2>
+                <form id="report-form">
+                    <label for="raw-material">Raw Material Emissions (kg CO2):</label>
+                    <input type="number" id="raw-material" placeholder="Enter emissions for raw material" required><br>
+                    <label for="transportation">Transportation Emissions (kg CO2):</label>
+                    <input type="number" id="transportation" placeholder="Enter emissions for transportation" required><br>
+                    <label for="manufacturing">Manufacturing Emissions (kg CO2):</label>
+                    <input type="number" id="manufacturing" placeholder="Enter emissions for manufacturing" required><br>
+                    <button type="submit" id="generate-report-btn">Generate Report</button>
+                </form>
+            </div>
+
+            <div id="report-output">
+                <h2>Compliance Report</h2>
+                <div id="compliance-summary">
+                    <p><strong>Total Emissions:</strong> <span id="total-emissions">-</span> kg CO2</p>
+                    <p><strong>Compliance Status:</strong> <span id="compliance-status">-</span></p>
+                    <p><strong>Greenhouse Gas Protocol Compliance:</strong> <span id="ghg-compliance">-</span></p>
+                </div>
+                <div id="chart-container">
+                    <canvas id="emissionsChart"></canvas>
+                </div>
+                <button id="download-report-btn">Download Report</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Sustainability Reporting | &copy; 2024</p>
+    </footer>
+
+    <script src="report-script.js"></script>
+</body>
+</html>

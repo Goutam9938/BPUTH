@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carbon Emission Tracker</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://maps.gomaps.pro/maps/api/js?key=AlzaSyuK_klOInJ294kj8i_V2fL5Mphn8N_TViZ&libraries=places"></script>
+</head>
+<body>
+  <header>
+    <div class="logo">🌍 Carbon Tracker</div>
+    <nav>
+      <ul>
+        <li><a href="#input-section">Home</a></li>
+        <li><a href="../Supply Chain/New folder/supply-chain-optimization.html">Supply Chain Optimization</a></li>
+        <li><a href="#output-section">Results</a></li>
+        <li><a href="#chart-section">Visualization</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="input-section" class="input-section">
+      <h2>Calculate Your Carbon Emission</h2>
+      <div class="form-group">
+        <label for="start"><i class="fas fa-map-marker-alt"></i> Starting Location:</label>
+        <input type="text" id="start" placeholder="Enter starting location">
+      </div>
+      <div class="form-group">
+        <label for="end"><i class="fas fa-map-marker-alt"></i> Ending Location:</label>
+        <input type="text" id="end" placeholder="Enter ending location">
+      </div>
+      <button id="calculate-route-btn"><i class="fas fa-route"></i> Calculate</button>
+    </section>
+
+    <section id="map" class="map-section"></section>
+
+    <section id="output-section" class="output-section">
+      <h2>Emission Results</h2>
+      <div class="results">
+        <p id="distance-result"><i class="fas fa-road"></i> Distance: -- km</p>
+        <p id="fuel-result"><i class="fas fa-gas-pump"></i> Fuel Consumption: -- liters</p>
+        <p id="emissions-result"><i class="fas fa-cloud"></i> Carbon Emissions: -- kg CO₂</p>
+      </div>
+    </section>
+
+    <section id="chart-section" class="chart-section">
+      <h2>Emission Visualization</h2>
+      <canvas id="emissionsChart"></canvas>
+    </section>
+    <section id="chart-section" class="chart-section">
+      <a href="../index1.html">
+      <h2>Vehicle Booking System</h2>
+    </a>
+    </section>
+
+    <section id="chart-section" class="chart-section">
+      <a href="../Supply Chain/New folder/supply-chain-optimization.html">
+      <h2>Supply Chain Optimization</h2>
+    </a>
+    </section>
+  </main>
+
+
+  <footer>
+    <p>&copy; 2024 Carbon Tracker | Built with <i class="fas fa-heart"></i> for Sustainability</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

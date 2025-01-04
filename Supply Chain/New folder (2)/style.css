@@ -1,0 +1,109 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.navbar nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.navbar nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main {
+    padding: 20px;
+    margin-top: 20px;
+}
+
+#map {
+    height: 400px;
+    margin-bottom: 20px;
+    background-color: #e0e0e0;
+}
+
+.form-section {
+    margin: 20px 0;
+    padding: 30px 10px;
+}
+
+input {
+    padding: 10px;
+    margin: 5px 0;
+    width: 100%;
+    max-width: 300px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#optimization-results {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #333;
+    font-size: 28px;
+    text-align: center;
+}
+
+#sustainability-report, #supplier-suggestions {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.supplier-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.supplier-list ul li {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+footer {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    bottom: 0;
+}

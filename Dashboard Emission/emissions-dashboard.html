@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emissions Insights Dashboard</title>
+    <link rel="stylesheet" href="dashboard-style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://maps.gomaps.pro/maps/api/js?key=AlzaSyuK_klOInJ294kj8i_V2fL5Mphn8N_TViZ&callback=initMap" async defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <h1>Emissions Insights Dashboard</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="emissions-dashboard.html">Emissions Dashboard</a></li>
+                    <li><a href="#">Supply Chain Optimization</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="dashboard">
+            <div class="summary">
+                <h2>Enter a Place to Get Emission Insights</h2>
+                <div id="place">
+                    <input type="text" id="place-input" placeholder="Enter a place name" />
+                    <button id="add-place-btn">Add Place</button>
+                </div>
+                <div id="map"></div>
+                <div id="emissions-summary">
+                    <p><strong>Current Total Emissions:</strong> <span id="current-emissions">-</span></p>
+                    <p><strong>Emissions Reduction Progress:</strong> <span id="reduction-progress">-</span></p>
+                </div>
+            </div>
+            
+            <div class="charts">
+                <h2>Emissions Insights</h2>
+                <canvas id="emissionsChart"></canvas>
+            </div>
+            
+            <div class="alerts">
+                <h2>Alerts</h2>
+                <ul id="alerts-list">
+                    <li>No active alerts.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Emissions Insights | &copy; 2024</p>
+    </footer>
+
+    <script src="dashboard-script.js"></script>
+</body>
+</html>

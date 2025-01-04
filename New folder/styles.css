@@ -1,0 +1,160 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Header Styles */
+.header {
+    background: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.header .logo {
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: bold;
+    float: left;
+}
+
+.header .nav {
+    float: right;
+}
+
+.header .nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+.header .nav a:hover {
+    background: #575757;
+}
+
+/* Hero Section */
+.hero {
+    background: url('hero-bg.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.hero .btn {
+    background: #28a745;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.hero .btn:hover {
+    background: #218838;
+}
+
+/* Features Section */
+.features {
+    background: #f4f4f4;
+    padding: 50px 0;
+}
+
+.features h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.features .feature {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Dashboard Section */
+.dashboard {
+    background: #fff;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.dashboard h2 {
+    margin-bottom: 20px;
+}
+
+/* How It Works Section */
+.how-it-works {
+    background: #f4f4f4;
+    padding: 50px 0;
+}
+
+.how-it-works h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.how-it-works ol {
+    max-width: 600px;
+    margin: 0 auto;
+    list-style: decimal;
+}
+
+/* Contact Section */
+.contact {
+    background: #fff;
+    padding: 50px 0;
+}
+
+.contact h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contact form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact input, .contact textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact button {
+    background: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.contact button:hover {
+    background: #218838;
+}
+
+/* Footer */
+.footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}

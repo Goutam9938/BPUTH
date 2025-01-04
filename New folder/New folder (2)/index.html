@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real-Time Carbon Emission Monitoring</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+  <header>
+    <h1>Real-Time Carbon Emission Monitoring</h1>
+  </header>
+  <main>
+    <section class="input-section">
+      <h2>Input Details</h2>
+      <label for="distance">Distance Traveled (km):</label>
+      <input type="number" id="distance" placeholder="Enter distance in km">
+
+      <label for="fuel">Fuel Consumed (liters):</label>
+      <input type="number" id="fuel" placeholder="Enter fuel in liters">
+
+      <button id="calculate-btn">Calculate Emissions</button>
+    </section>
+
+    <section class="output-section">
+      <h2>Emissions Data</h2>
+      <p id="emissions-result">Carbon Emissions: -- kg CO<sub>2</sub></p>
+    </section>
+
+    <section class="chart-section">
+      <h2>Visualization</h2>
+      <canvas id="emissionsChart"></canvas>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

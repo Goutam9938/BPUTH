@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supply Chain Optimization with Google Maps</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://maps.gomaps.pro/maps/api/js?key=AlzaSyuK_klOInJ294kj8i_V2fL5Mphn8N_TViZ&callback=initMap&libraries=places" async defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <h1>Supply Chain Optimization for Sustainability</h1>
+            <nav>
+                <ul>
+                    <li><a href="../../Carbon Emission Tracker/index.html">Home</a></li>
+                    <li><a href="../New folder/supply-chain-optimization.html">Supply Chain Optimization</a></li>
+                    <li><a href="../../Sustainibility Report/sustainability-report.html">Sustainability Reports</a></li>
+                    <li><a href="#">Supplier Suggestions</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <section id="optimization">
+            <h2>Supply Chain Route Optimization</h2>
+            <div id="map"></div>
+            <div class="form-section">
+                <label for="start-location">Start Location:</label>
+                <input type="text" id="start-location" placeholder="Enter start location">
+                <label for="end-location">End Location:</label>
+                <input type="text" id="end-location" placeholder="Enter end location">
+                <button id="optimize-route">Optimize Route</button>
+            </div>
+            <div id="optimization-results">
+                <h3>Optimization Results</h3>
+                <p id="optimized-distance"></p>
+                <p id="fuel-consumed"></p>
+                <p id="carbon-emission"></p>
+            </div>
+        </section>
+        
+        <section id="sustainability-report">
+            <h2>Sustainability Report</h2>
+            <div class="report-section">
+                <h3>Emissions Report</h3>
+                <div id="emissions-report"></div>
+                <button id="generate-report">Generate Report</button>
+            </div>
+        </section>
+        
+        <section id="supplier-suggestions">
+            <h2>Sustainable Supplier Suggestions</h2>
+            <div class="supplier-list">
+                <h3>Suggested Suppliers</h3>
+                <ul>
+                    <li>Eco-Transport Ltd. - Low Carbon Emission Vehicles</li>
+                    <li>GreenMaterials Inc. - Sustainable Raw Materials</li>
+                    <li>Solar Power Co. - Renewable Energy Solutions</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Supply Chain Optimization | &copy; 2024</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

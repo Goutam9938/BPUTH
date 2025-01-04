@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creta EV Details</title>
+    <style>
+        /* CSS Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+    
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #4CAF50;
+            color: white;
+        }
+    
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    
+        .slider {
+            position: relative;
+            max-width: 100%;
+            height: 300px; /* Set height to maintain consistency */
+            margin: auto;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+    
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%; /* Match parent height */
+        }
+    
+        .slides img {
+    width: 100%;
+    height: 100%; /* Fill the container */
+    object-fit: cover; /* Maintain aspect ratio and fill */
+    border-radius: 8px;
+    image-rendering: auto; /* Ensures proper rendering */
+    image-rendering: crisp-edges; /* Enhances clarity on some browsers */
+}
+
+    
+        .navigation {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+    
+        .navigation button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+    
+        .navigation button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    
+        .vehicle-details {
+            margin-top: 20px;
+        }
+    
+        .vehicle-details h2 {
+            margin-bottom: 10px;
+            color: #4CAF50;
+        }
+    
+        .view-more-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    
+        .view-more-btn:hover {
+            background-color: #45a049;
+        }
+    
+        .additional-details {
+            display: none;
+            margin-top: 20px;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+        }
+    
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #4CAF50;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+    
+</head>
+<body>
+    <!-- HTML Structure -->
+    <header>
+        <h1>Creta EV Vehicle Details</h1>
+    </header>
+
+    <div class="container">
+        <div class="slider" id="slider">
+            <div class="slides">
+                <img src="https://imgd.aeplcdn.com/664x374/n/cw/ec/174611/windsor-ev-exterior-right-front-three-quarter.jpeg?isig=0&q=80" alt="Interior 1">
+                <img src="https://imgd.aeplcdn.com/1600x900/n/cw/ec/187797/mg-windsor-ev-dashboard37.jpeg?isig=0&wm=1&q=75" alt="Interior 2">
+                <img src="https://imgd.aeplcdn.com/1280x720/n/cw/ec/184329/mg-windsor-ev-rear-seats0.jpeg?isig=0" alt="Interior 3">
+                <img src="https://imgd-ct.aeplcdn.com/1056x660/n/cw/ec/110437/zs-ev-interior-parking-brake-emergency-brake.jpeg?isig=0&q=80" alt="Interior 3">
+            </div>
+            <div class="navigation">
+                <button onclick="prevSlide()">&#10094;</button>
+                <button onclick="nextSlide()">&#10095;</button>
+            </div>
+        </div>
+
+        <div class="vehicle-details">
+            <h2>Creta EV</h2>
+            <p>The Hyundai Creta EV is an eco-friendly SUV designed to provide maximum efficiency and comfort. This electric vehicle combines modern technology, luxury, and sustainability, making it an ideal choice for environmentally conscious drivers. By operating entirely on electric power, the Creta EV significantly reduces carbon emissions compared to traditional fuel-based vehicles, contributing to cleaner air and a healthier environment. Its zero-emission design aligns with global efforts to combat climate change and promote sustainable transportation.</p>
+            <button class="view-more-btn" onclick="toggleDetails()">View More Details</button>
+        </div>
+
+        <div class="additional-details" id="additionalDetails">
+            <h3>Specifications:</h3>
+            <ul>
+                <li>Battery Capacity: 64 kWh</li>
+                <li>Range: 450 km on a full charge</li>
+                <li>Charging Time: Fast charge in 1 hour, standard charge in 6 hours</li>
+                <li>Top Speed: 160 km/h</li>
+                <li>Seating Capacity: 5</li>
+            </ul>
+
+            <h3>Description:</h3>
+            <p>The Creta EV is equipped with advanced safety features, including multiple airbags, ABS with EBD, and a host of driver-assist technologies. It features a spacious interior, cutting-edge infotainment system, and premium materials, ensuring a superior driving experience.</p>
+
+            <!-- <h3>Price:</h3>
+            <p>Starting at ₹16,99,000 (ex-showroom).</p> -->
+        </div>
+    </div>
+
+    <footer>
+        <p>Creta EV Details Page &copy; 2024</p>
+    </footer>
+
+    <script>
+        // JavaScript Code for Slider
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelector('.slides');
+            const totalSlides = slides.children.length;
+
+            if (index >= totalSlides) {
+                currentSlide = 0;
+            } else if (index < 0) {
+                currentSlide = totalSlides - 1;
+            } else {
+                currentSlide = index;
+            }
+
+            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        // JavaScript Code for Details Toggle
+        function toggleDetails() {
+            const details = document.getElementById('additionalDetails');
+            if (details.style.display === 'none' || details.style.display === '') {
+                details.style.display = 'block';
+            } else {
+                details.style.display = 'none';
+            }
+        }
+
+        // Initialize Slider
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>

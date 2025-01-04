@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom right, #FFEFBA, #FFFFFF);
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: #333;
+        }
+
+        .container {
+            margin: 60px auto;
+            max-width: 400px;
+            background: linear-gradient(to bottom, #ffffff, #f9f9f9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            color: #6A0572;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .message {
+            font-size: 16px;
+            margin: 15px 0;
+            color: #555;
+        }
+
+        .scratch-card {
+            position: relative;
+            width: 300px;
+            height: 150px;
+            margin: 25px auto;
+            border-radius: 15px;
+            background: #F0F0F0;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            border: 2px solid #d3d3d3;
+        }
+
+        .scratch-card .hidden-message {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, #FDFBFB, #EBEDEE);
+            color: #4CAF50;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 22px;
+            font-weight: bold;
+            z-index: 1;
+            border-radius: 15px;
+        }
+
+        .scratch-card canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            border-radius: 15px;
+        }
+
+        .reward-message {
+            display: none;
+            font-size: 18px;
+            color: #6A0572;
+            margin-top: 15px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        button {
+            background: #6A0572;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #57045F;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Booking Confirmed!</h1>
+        <p class="message">Your booking has been successfully confirmed. Scratch below to reveal your reward!</p>
+
+        <div class="scratch-card" id="scratchCard">
+            <div class="hidden-message" id="hiddenMessage">You won ₹50 cashback!</div>
+            <canvas></canvas>
+        </div>
+
+        <p class="reward-message" id="rewardMessage">Congratulations! ₹50 cashback has been added to your account.</p>
+        <button id="claimReward" style="display: none;">Claim Reward</button>
+    </div>
+
+    <script>
+        const scratchCard = document.getElementById('scratchCard');
+        const hiddenMessage = document.getElementById('hiddenMessage');
+        const rewardMessage = document.getElementById('rewardMessage');
+        const claimReward = document.getElementById('claimReward');
+        const canvas = scratchCard.querySelector('canvas');
+        const ctx = canvas.getContext('2d');
+
+        let isScratching = false;
+
+        canvas.width = scratchCard.offsetWidth;
+        canvas.height = scratchCard.offsetHeight;
+
+        // Fill canvas with scratchable color
+        ctx.fillStyle = "#888888";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        scratchCard.addEventListener('mousedown', () => isScratching = true);
+        scratchCard.addEventListener('mouseup', () => isScratching = false);
+        scratchCard.addEventListener('mousemove', scratch);
+
+        function scratch(e) {
+            if (!isScratching) return;
+
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            ctx.globalCompositeOperation = "destination-out";
+            ctx.beginPath();
+            ctx.arc(x, y, 20, 0, Math.PI * 2);
+            ctx.fill();
+        }
+
+        canvas.addEventListener('mouseleave', () => isScratching = false);
+
+        // Check if scratch area is cleared enough
+        scratchCard.addEventListener('mouseup', () => {
+            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            let clearedPixels = 0;
+
+            for (let i = 0; i < imageData.data.length; i += 4) {
+                if (imageData.data[i + 3] === 0) {
+                    clearedPixels++;
+                }
+            }
+
+            const clearedPercentage = (clearedPixels / (canvas.width * canvas.height)) * 100;
+
+            if (clearedPercentage > 50) {
+                hiddenMessage.style.zIndex = "-1"; // Reveal the message
+                rewardMessage.style.display = "block";
+                claimReward.style.display = "inline-block";
+            }
+        });
+
+        claimReward.addEventListener('click', () => {
+            alert('Reward claimed successfully!');
+        });
+    </script>
+</body>
+</html>
+
+
