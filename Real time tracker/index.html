@@ -9,48 +9,33 @@
 <body>
     <div class="container">
         <header>
-            <h1>Unearthed Odisha</h1>
-            <p>Your eco-friendly journey begins here!</p>
+            <h1>Unearthed Odisha - Green Journey</h1>
+            <p>Track your eco-friendly habits and earn eco-points!</p>
         </header>
 
-        <main>
-            <section class="tracker">
-                <h2>Track Your Activities</h2>
-                <div class="activity-buttons">
-                    <button onclick="startTracking('walking')">
-                        <i class="fas fa-walking"></i> Start Walking
-                    </button>
-                    <button onclick="startTracking('cycling')">
-                        <i class="fas fa-biking"></i> Start Cycling
-                    </button>
-                    <button onclick="startTracking('carpooling')">
-                        <i class="fas fa-car"></i> Start Carpooling
-                    </button>
-                    <button onclick="stopTracking()">
-                        <i class="fas fa-stop-circle"></i> Stop Activity
-                    </button>
-                </div>
-                <div class="stats">
-                    <p>Distance Covered: <span id="distance">0</span> meters</p>
-                    <p>Eco-Points Earned: <span id="activityPoints">0</span></p>
-                </div>
-            </section>
-
-            <section class="points">
-                <h2>Your Eco-Points</h2>
-                <div class="points-card">
-                    <p>Points Earned Today: <span id="points">0</span></p>
-                </div>
-            </section>
-        </main>
+        <section class="tracker">
+            <h2>Track Your Green Activities</h2>
+            <p>Choose an activity and let us track your progress!</p>
+            <button onclick="startTracking('walking')">Start Walking</button>
+            <button onclick="startTracking('cycling')">Start Cycling</button>
+            <button onclick="startTracking('carpooling')">Start Carpooling</button>
+            <button onclick="stopTracking()">Stop Activity</button>
+            <p>Distance covered: <span id="distance">0</span> meters</p>
+            <p>Eco-points for activity: <span id="activityPoints">0</span></p>
+        </section>
+        
+        <section class="points">
+            <h2>Your Eco-Points</h2>
+            <p>Points earned today: <span id="points">0</span></p>
+        </section>
+        
 
         <footer>
             <p>Powered by Unearthed Odisha</p>
         </footer>
     </div>
 
-    <!-- Include FontAwesome for icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
 </html>
+

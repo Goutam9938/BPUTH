@@ -3,14 +3,17 @@ let totalDistance = 0;
 let trackingInterval;
 let lastPosition = null;
 let currentActivity = null;
+const MIN_DISTANCE_THRESHOLD = 5; // Ignore changes less than 5 meters
 
 function startTracking(activity) {
     currentActivity = activity;
 
     if (navigator.geolocation) {
-        trackingInterval = setInterval(trackPosition, 1000);
-        document.getElementById("distance").innerText = 0; // Reset distance
-        document.getElementById("activityPoints").innerText = 0; // Reset activity points
+        trackingInterval = setInterval(trackPosition, 1000); // Update every second
+        totalDistance = 0; // Reset distance
+        lastPosition = null; // Reset last position
+        document.getElementById("distance").innerText = 0;
+        document.getElementById("activityPoints").innerText = 0;
     } else {
         alert("Geolocation is not supported by this browser.");
     }
@@ -21,17 +24,15 @@ function stopTracking() {
     alert(
         `Tracking stopped. You covered ${totalDistance.toFixed(2)} meters while ${currentActivity}.`
     );
-    totalDistance = 0;
-    lastPosition = null; // Reset the last position
-    currentActivity = null;
-    document.getElementById("distance").innerText = totalDistance.toFixed(2);
+    totalDistance = 0; // Reset distance for next activity
+    lastPosition = null; // Clear last position
+    currentActivity = null; // Reset activity
 }
 
 function trackPosition() {
     navigator.geolocation.getCurrentPosition(function (position) {
         const currentPosition = position.coords;
 
-        // Skip if there's no valid last position
         if (lastPosition) {
             const distance = calculateDistance(
                 lastPosition.latitude,
@@ -40,20 +41,19 @@ function trackPosition() {
                 currentPosition.longitude
             );
 
-            // Apply a threshold to avoid small inaccuracies adding up
-            if (distance > 5) { // Only consider changes greater than 5 meters
-                totalDistance += distance;
+            if (distance >= MIN_DISTANCE_THRESHOLD) {
+                totalDistance += distance; // Update total distance
                 document.getElementById("distance").innerText = totalDistance.toFixed(2);
                 calculateEcoPoints(totalDistance, currentActivity);
             }
         }
 
-        lastPosition = currentPosition; // Update the last position
+        lastPosition = currentPosition; // Update last position
     });
 }
 
 function calculateDistance(lat1, lon1, lat2, lon2) {
-    const R = 6371e3; // Earth’s radius in meters
+    const R = 6371e3; // Earth's radius in meters
     const φ1 = (lat1 * Math.PI) / 180;
     const φ2 = (lat2 * Math.PI) / 180;
     const Δφ = ((lat2 - lat1) * Math.PI) / 180;
@@ -65,7 +65,7 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
         Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
-    return R * c;
+    return R * c; // Distance in meters
 }
 
 function calculateEcoPoints(distance, activity) {
@@ -85,9 +85,7 @@ function calculateEcoPoints(distance, activity) {
             pointsMultiplier = 0;
     }
 
-    const activityPoints = Math.floor((distance / 10) * pointsMultiplier);
-    ecoPoints += activityPoints;
-
+    const activityPoints = Math.floor((distance / 50) * pointsMultiplier);
     document.getElementById("activityPoints").innerText = activityPoints;
-    document.getElementById("points").innerText = ecoPoints;
+    document.getElementById("points").innerText = activityPoints; // Updated ecoPoints
 }
